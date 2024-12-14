@@ -1,10 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './taskList.css'
 import { Task } from '../task/task.jsx'
 import { DndContext, useDroppable } from '@dnd-kit/core'
 import confetti from 'canvas-confetti'
 
 export function TaskList({ tasks, updateTaskStatus, updateTaskEmoji, removeTask }) {
+  useEffect(() => {
+    const handleTouchMove = (e) => {
+      if (e.target.closest('.task')) {
+        e.preventDefault() // Prevent screen scrolling while dragging a task
+      }
+    }
+
+    document.addEventListener('touchmove', handleTouchMove, { passive: false })
+
+    return () => {
+      document.removeEventListener('touchmove', handleTouchMove)
+    }
+  }, [])
+
   const handleDragEnd = (event) => {
     const { active, over } = event
     if (over) {
@@ -45,6 +59,12 @@ export function TaskList({ tasks, updateTaskStatus, updateTaskEmoji, removeTask 
     frame()
   }
 
+  const capitalizeWords = (text) =>
+    text
+      .split('-')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join('-')
+
   return (
     <DndContext onDragEnd={handleDragEnd}>
       <div className="task-list-container">
@@ -60,12 +80,19 @@ function DroppableColumn({ id, tasks, status, updateTaskEmoji, removeTask }) {
   const { isOver, setNodeRef } = useDroppable({ id })
   const columnTasks = tasks.filter((task) => task.status === status)
 
+  function capitalizeWords(text) {
+    return text
+      .split('-') // Split by hyphen instead of space
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join('-') // Join with hyphen instead of space
+  }
+
   return (
     <div
       ref={setNodeRef}
       className={`task-column ${isOver ? 'drag-over' : ''}`}
     >
-      <h3>{status.replace('-', ' ').toUpperCase()}</h3>
+      <h3>{capitalizeWords(status)}</h3> {/* Title Case with Hyphen */}
       {columnTasks.map((task) => (
         <Task
           key={task.id}
