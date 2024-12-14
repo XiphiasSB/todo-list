@@ -1,15 +1,12 @@
 .task-list-container {
     display: flex;
     gap: 16px;
-    /* Space between columns */
     padding: 16px;
     justify-content: space-around;
-    /* Distribute columns evenly */
-    align-items: flex-start;
-    /* Align columns to the top */
-    flex-wrap: wrap;
-    /* Allow wrapping for mobile mode */
+    overflow: visible;
+    /* Ensure child elements are not clipped */
 }
+
 
 .task-column {
     flex: 1;
@@ -40,11 +37,8 @@
 
 .task-column.drag-over {
     background-color: #ffccdf;
-    /* Brighter pink to indicate active drop zone */
+    /* Highlight when a task is dragged over */
     border: 2px dashed #ff69b4;
-    /* Dashed border on drag-over */
-    box-shadow: 0 6px 10px rgba(255, 105, 180, 0.3);
-    /* Enhance shadow on drag-over */
 }
 
 /* Mobile Mode: Stack columns vertically */

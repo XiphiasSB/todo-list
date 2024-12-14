@@ -15,7 +15,6 @@ input[type="text"] {
     background-color: #fffaf0;
     /* Light cream background */
     font-size: 16px;
-    font-family: "Cursive", sans-serif;
     color: #ff69b4;
     /* Bright pink text */
     box-shadow: 0 4px 6px rgba(255, 182, 193, 0.2);
@@ -46,7 +45,6 @@ button[type="submit"] {
     /* Bright pink button */
     color: white;
     font-size: 16px;
-    font-family: "Cursive", sans-serif;
     cursor: pointer;
     transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
     box-shadow: 0 4px 6px rgba(255, 105, 180, 0.3);

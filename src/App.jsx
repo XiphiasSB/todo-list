@@ -21,7 +21,7 @@ export function App() {
       id: tasks.length + 1,
       text,
       status: "to-do",
-      emoji: "" // Add emoji property to task
+      emoji: ""
     }
     setTasks([...tasks, newTask])
   }

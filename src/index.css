@@ -1,26 +1,27 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Playfair+Display:wght@400;700&display=swap');
+
 body {
-  font-family: "Cursive", "Segoe UI", Arial, sans-serif;
-  /* Elegant or playful font */
-  background-color: #ffd8e8;
-  /* A slightly deeper pink for higher contrast */
-  color: #2d2d2d;
-  /* Darker text for improved readability */
+  font-family: "Quicksand", Arial, sans-serif;
+  /* Rounded, readable font for body */
+  background-color: #ffeef6;
+  /* Soft pink background */
+  color: #333;
+  /* Dark text for readability */
   margin: 0;
-  /* Remove any default margins */
   padding: 0;
-  height: 100vh;
-  /* Ensure it spans the full viewport height */
 }
 
 h1,
 h2,
 h3 {
-  font-family: "Dancing Script", cursive;
-  /* Elegant, girly font */
+  font-family: "Playfair Display", serif;
+  /* Elegant and princess-like for headings */
   color: #ff69b4;
   /* Bright pink headings */
   text-align: center;
 }
+
 
 .main {
   min-height: 100vh;

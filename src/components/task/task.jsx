@@ -1,44 +1,75 @@
 import './task.css'
-import { useState } from 'react'
+import { useDraggable } from '@dnd-kit/core'
+import { EmojiPicker } from './emoji/emojiPicker.jsx'
+import { useState, useEffect, useRef } from 'react'
 
-export function Task({ task, onDragStart, onRemove, updateEmoji }) {
-  const [showPicker, setShowPicker] = useState(false) // State to toggle emoji picker visibility
+export function Task({ task, updateTaskEmoji, removeTask }) {
+  const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
+    id: task.id.toString(),
+  })
 
-  const handleEmojiSelect = (selectedEmoji) => {
-    updateEmoji(task.id, selectedEmoji) // Update emoji in parent state
-    setShowPicker(false) // Close the picker
+  const [showPicker, setShowPicker] = useState(false)
+  const emojiRef = useRef(null) // Ref for emoji container
+
+  const handleEmojiSelect = (emoji) => {
+    updateTaskEmoji(task.id, emoji)
+    setShowPicker(false)
+  }
+
+  const handleStopPropagation = (e) => {
+    e.stopPropagation() // Prevent drag
+  }
+
+  // Close emoji picker when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (emojiRef.current && !emojiRef.current.contains(e.target)) {
+        setShowPicker(false) // Close picker
+      }
+    }
+
+    if (showPicker) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [showPicker])
+
+  const style = {
+    transform: transform
+      ? `translate3d(${transform.x}px, ${transform.y}px, 0)`
+      : undefined,
+    willChange: 'transform',
+    transition: isDragging ? 'none' : 'transform 0.2s ease',
   }
 
   return (
-    <div
-      className="task"
-      draggable="true"
-      onDragStart={(event) => onDragStart(event, task)}
-    >
-      {/* Emoji Display */}
-      <div className="emoji-container" onClick={() => setShowPicker(!showPicker)}>
-        {task.emoji ? <span className="selected-emoji">{task.emoji}</span> : <span className="placeholder-emoji">+</span>}
-        {showPicker && (
-          <div className="emoji-picker">
-            <span onClick={() => handleEmojiSelect("😊")} role="button">😊</span>
-            <span onClick={() => handleEmojiSelect("❤️")} role="button">❤️</span>
-            <span onClick={() => handleEmojiSelect("🌧️")} role="button">🌧️</span>
-            <span onClick={() => handleEmojiSelect("🌞")} role="button">🌞</span>
-            <span onClick={() => handleEmojiSelect("📅")} role="button">📅</span>
-            <span onClick={() => handleEmojiSelect("😭")} role="button">😭</span>
-            <span onClick={() => handleEmojiSelect("🎉")} role="button">🎉</span>
-            <span onClick={() => handleEmojiSelect("+")} role="button">+</span> {/* No emoji */}
-          </div>
-        )}
+    <div ref={setNodeRef} className="task" style={style}>
+      {/* Draggable Content */}
+      <div className="task-content" {...listeners} {...attributes}>
+        <p>{task.text}</p>
       </div>
 
-      {/* Task Text */}
-      <p>{task.text}</p>
-      
+      {/* Emoji Picker */}
+      <div ref={emojiRef}>
+        <EmojiPicker
+          selectedEmoji={task.emoji}
+          onSelectEmoji={(emoji) => handleEmojiSelect(emoji)}
+          showPicker={showPicker}
+          togglePicker={() => setShowPicker(!showPicker)}
+        />
+      </div>
+
       {/* Remove Task Button */}
       <button
         className="remove-task-button"
-        onClick={() => onRemove(task.id)}
+        onClick={(e) => {
+          handleStopPropagation(e) // Prevent drag
+          removeTask(task.id)
+        }}
+        style={{ pointerEvents: 'auto' }}
       >
         ×
       </button>

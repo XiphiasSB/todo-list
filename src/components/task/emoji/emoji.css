@@ -1,0 +1,43 @@
+/* Emoji container */
+.emoji-container {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    cursor: pointer;
+}
+
+.emoji-picker {
+    position: absolute;
+    /* Use absolute positioning for dynamic placement */
+    background-color: #ffeef6;
+    border: 1px solid #ffb6c1;
+    border-radius: 8px;
+    padding: 8px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 columns */
+    gap: 8px;
+    z-index: 9999;
+    /* Ensure it stays on top */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+.emoji-picker span {
+    cursor: pointer;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* Placeholder emoji */
+.placeholder-emoji {
+    font-size: 16px;
+    color: #aaa;
+}
+
+/* Selected emoji */
+.selected-emoji {
+    font-size: 18px;
+}

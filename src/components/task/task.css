@@ -1,113 +1,78 @@
+/* The task container */
 .task {
-    position: relative;
-    /* Ensure child elements are positioned relative to the task */
-    padding: 12px;
-    margin: 5px 0;
-    border: 1px solid #ffb6c1;
-    /* Pink border */
-    border-radius: 8px;
     background-color: #fff;
+    border: 1px solid #ffb6c1;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
     color: #ff69b4;
     font-weight: bold;
-    box-shadow: 0 4px 6px rgba(255, 182, 193, 0.2);
-    /* Subtle shadow */
-    cursor: grab;
+    box-shadow: 0 4px 8px rgba(255, 182, 193, 0.2);
+    position: relative;
+    /* To position interactive elements */
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.task:active {
+/* Draggable Content */
+.task-content {
+    cursor: grab;
+    height: 80%;
+    /* Make the draggable area larger */
+    padding: 8px;
+}
+
+.task-content:active {
     cursor: grabbing;
 }
 
-/* Emoji Container */
+/* Interactive elements (emoji picker and remove button) */
+.emoji-container,
+.remove-task-button {
+    pointer-events: auto;
+    /* Allow interactions */
+}
+
+/* Emoji container */
 .emoji-container {
     position: absolute;
-    top: 5px;
-    left: 5px;
-    display: flex;
-    align-items: center;
-    /* Vertically center emoji */
-    justify-content: center;
-    /* Horizontally center emoji */
-    width: 30px;
-    height: 30px;
-    border: 1px solid #ffb6c1;
-    border-radius: 50%;
-    background-color: #ffeef6;
+    top: 8px;
+    left: 8px;
     cursor: pointer;
 }
 
-.placeholder-emoji {
-    color: #ff69b4;
-    font-size: 18px;
-}
-
-.selected-emoji {
-    font-size: 18px;
-}
-
-/* Emoji Picker */
+/* Emoji picker */
 .emoji-picker {
     position: absolute;
-    top: 40px;
-    /* Space below the emoji container */
-    left: 5px;
-    /* Align with the emoji container */
-    display: grid;
-    /* Use a grid layout for the picker */
-    grid-template-columns: repeat(4, 1fr);
-    /* 4 emojis per row */
-    gap: 5px;
-    background-color: #fff;
-    padding: 10px;
+    background-color: #ffeef6;
     border: 1px solid #ffb6c1;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(255, 182, 193, 0.3);
-    z-index: 1000;
+    padding: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    top: 40px;
+    left: 0;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .emoji-picker span {
-    font-size: 24px;
-    /* Larger emoji size */
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
-    border-radius: 50%;
-    transition: background-color 0.2s, transform 0.2s;
-}
-
-.emoji-picker span:hover {
-    background-color: #ffeef6;
-    transform: scale(1.2);
-    /* Slight zoom on hover */
+    font-size: 18px;
 }
 
 /* Remove Task Button */
 .remove-task-button {
     position: absolute;
-    /* Ensure it's positioned relative to the task */
-    top: 5px;
-    right: 5px;
-    width: 24px;
-    height: 24px;
-    background-color: #ffeef6;
-    /* Light pink background for button */
-    border: 1px solid #ffb6c1;
-    border-radius: 50%;
-    color: red;
+    top: 8px;
+    right: 8px;
+    background-color: transparent;
+    border: none;
+    color: #ff69b4;
     font-size: 16px;
     cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .remove-task-button:hover {
-    background-color: #ffccdf;
-    transform: scale(1.1);
-    /* Slight zoom effect on hover */
-    color: darkred;
+    color: #ff0000;
 }
