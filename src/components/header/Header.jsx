@@ -2,6 +2,6 @@
 
 export function Header(){
     return(
-        <h2>My Tasks</h2>
+        <h1>The Princess To-Do List</h1>
     )
 }
