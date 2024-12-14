@@ -1,0 +1,67 @@
+form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 16px 0;
+}
+
+input[type="text"] {
+    width: 70%;
+    padding: 12px;
+    margin-right: 8px;
+    border: 2px solid #ffb6c1;
+    /* Pink border */
+    border-radius: 8px;
+    background-color: #fffaf0;
+    /* Light cream background */
+    font-size: 16px;
+    font-family: "Cursive", sans-serif;
+    color: #ff69b4;
+    /* Bright pink text */
+    box-shadow: 0 4px 6px rgba(255, 182, 193, 0.2);
+    /* Subtle shadow */
+    transition: box-shadow 0.2s ease;
+}
+
+input[type="text"]::placeholder {
+    color: #ffb6c1;
+    /* Pink placeholder text */
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #ff69b4;
+    /* Bright pink focus */
+    background-color: #ffeef6;
+    /* Light pink focus background */
+    box-shadow: 0 6px 10px rgba(255, 182, 193, 0.4);
+    /* Focus shadow */
+}
+
+button[type="submit"] {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ff69b4;
+    /* Bright pink button */
+    color: white;
+    font-size: 16px;
+    font-family: "Cursive", sans-serif;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px rgba(255, 105, 180, 0.3);
+    /* Button shadow */
+}
+
+button[type="submit"]:hover {
+    background-color: #ff1493;
+    /* Darker pink on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(255, 105, 180, 0.5);
+    /* Elevated shadow */
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(255, 105, 180, 0.3);
+}

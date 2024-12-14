@@ -1,0 +1,35 @@
+body {
+  font-family: "Cursive", "Segoe UI", Arial, sans-serif;
+  /* Elegant or playful font */
+  background-color: #ffd8e8;
+  /* A slightly deeper pink for higher contrast */
+  color: #2d2d2d;
+  /* Darker text for improved readability */
+  margin: 0;
+  /* Remove any default margins */
+  padding: 0;
+  height: 100vh;
+  /* Ensure it spans the full viewport height */
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Dancing Script", cursive;
+  /* Elegant, girly font */
+  color: #ff69b4;
+  /* Bright pink headings */
+  text-align: center;
+}
+
+.main {
+  min-height: 100vh;
+  /* Extend background to full height */
+  background-color: #ffe6f0;
+  /* Slight contrast against the body background */
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
