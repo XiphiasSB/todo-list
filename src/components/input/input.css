@@ -7,6 +7,8 @@ form {
 
 input[type="text"] {
     width: 70%;
+    max-width: 500px;
+    /* Set a reasonable maximum width */
     padding: 12px;
     margin-right: 8px;
     border: 2px solid #ffb6c1;
@@ -22,20 +24,6 @@ input[type="text"] {
     transition: box-shadow 0.2s ease;
 }
 
-input[type="text"]::placeholder {
-    color: #ffb6c1;
-    /* Pink placeholder text */
-}
-
-input[type="text"]:focus {
-    outline: none;
-    border-color: #ff69b4;
-    /* Bright pink focus */
-    background-color: #ffeef6;
-    /* Light pink focus background */
-    box-shadow: 0 6px 10px rgba(255, 182, 193, 0.4);
-    /* Focus shadow */
-}
 
 button[type="submit"] {
     padding: 12px 20px;

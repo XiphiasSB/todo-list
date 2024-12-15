@@ -1,10 +1,36 @@
 header {
-    text-align: center;
-    padding: 16px;
-    background-color: #ff69b4;
-    /* Bright pink header */
-    color: white;
+    display: flex;
+    /* Align items horizontally */
+    align-items: center;
+    /* Center items vertically */
+    justify-content: center;
+    /* Center the content */
+    padding: 20px 16px;
+    /* Adjust padding for height */
+    background-color: #ffe4e1;
+    /* Light pink header background */
+    gap: 12px;
+    /* Space between image and text */
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(255, 105, 180, 0.2);
+    /* Subtle pink shadow */
+    border: 2px solid #ffb6c1;
+}
+
+.crown-logo {
+    height: 40px;
+    /* Keep the crown image small */
+    width: auto;
+    /* Maintain aspect ratio */
+}
+
+.header-title {
+    margin: 0;
+    /* Remove default margin on h1 */
     font-size: 24px;
-    border-bottom: 4px solid #ffb6c1;
-    /* Light pink border */
+    /* Set font size */
+    line-height: 1;
+    /* Fix vertical spacing */
+    color: #ff69b4;
+    /* Bright pink text color */
 }
