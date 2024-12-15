@@ -8,7 +8,7 @@ export function TaskList({ tasks, updateTaskStatus, updateTaskEmoji, removeTask 
   useEffect(() => {
     const handleTouchMove = (e) => {
       if (e.target.closest('.task')) {
-        e.preventDefault() // Prevent screen scrolling while dragging a task
+        e.preventDefault()
       }
     }
 
@@ -47,7 +47,7 @@ export function TaskList({ tasks, updateTaskStatus, updateTaskEmoji, removeTask 
         startVelocity: 45,
         origin: {
           x: Math.random(),
-          y: Math.random() * 0.8, // Confetti appears in the upper part
+          y: Math.random() * 0.8,
         },
       })
 
@@ -92,7 +92,7 @@ function DroppableColumn({ id, tasks, status, updateTaskEmoji, removeTask }) {
       ref={setNodeRef}
       className={`task-column ${isOver ? 'drag-over' : ''}`}
     >
-      <h3>{capitalizeWords(status)}</h3> {/* Title Case with Hyphen */}
+      <h3>{capitalizeWords(status)}</h3>
       {columnTasks.map((task) => (
         <Task
           key={task.id}

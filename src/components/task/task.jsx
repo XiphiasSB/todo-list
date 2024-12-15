@@ -47,12 +47,10 @@ export function Task({ task, updateTaskEmoji, removeTask }) {
 
   return (
     <div ref={setNodeRef} className="task" style={style}>
-      {/* Draggable Content */}
       <div className="task-content" {...listeners} {...attributes}>
         <p>{task.text}</p>
       </div>
 
-      {/* Emoji Picker */}
       <div ref={emojiRef}>
         <EmojiPicker
           selectedEmoji={task.emoji}
@@ -62,7 +60,6 @@ export function Task({ task, updateTaskEmoji, removeTask }) {
         />
       </div>
 
-      {/* Remove Task Button */}
       <button
         className="remove-task-button"
         onClick={(e) => {
