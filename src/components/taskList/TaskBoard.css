@@ -1,0 +1,19 @@
+/* src/components/taskList/TaskBoard.css */
+
+/* Container that holds all columns side by side */
+.task-list-container {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    justify-content: space-around;
+    overflow: visible; 
+    /* Ensure child elements are not clipped */
+}
+
+/* Mobile Mode: stack columns vertically */
+@media (max-width: 768px) {
+    .task-list-container {
+        flex-direction: column;
+        gap: 12px;
+    }
+}

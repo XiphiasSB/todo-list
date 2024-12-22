@@ -68,6 +68,8 @@ export function EmojiPicker({ selectedEmoji, onSelectEmoji }) {
       <span onClick={() => handleEmojiSelect('💪')} role="button">💪</span>
       <span onClick={() => handleEmojiSelect('🧠')} role="button">🧠</span>
       <span onClick={() => handleEmojiSelect('👩‍🎓')} role="button">👩‍🎓</span>
+      <span onClick={() => handleEmojiSelect('🌳')} role="button">🌳</span>
+      <span onClick={() => handleEmojiSelect('🐾')} role="button">🐾</span>
       <span onClick={() => handleEmojiSelect('+')} role="button">+</span> {/* No emoji */}
     </div>
   )

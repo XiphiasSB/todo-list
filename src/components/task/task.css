@@ -1,78 +1,57 @@
-/* The task container */
 .task {
-    background-color: #fff;
-    border: 1px solid #ffb6c1;
-    border-radius: 8px;
-    padding: 12px;
-    margin-bottom: 12px;
-    color: #ff69b4;
-    font-weight: bold;
-    box-shadow: 0 4px 8px rgba(255, 182, 193, 0.2);
     position: relative;
-    /* To position interactive elements */
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-/* Draggable Content */
-.task-content {
-    cursor: grab;
-    height: 80%;
-    /* Make the draggable area larger */
+    background: #fff;
+    border-radius: 8px;
+    margin-bottom: 8px;
     padding: 8px;
-}
-
-.task-content:active {
+  }
+  
+  /* The draggable area */
+  .task-handle {
+    cursor: grab;
+    text-align: center;
+    padding: 8px;
+  }
+  .task-handle:active {
     cursor: grabbing;
-}
-
-/* Interactive elements (emoji picker and remove button) */
-.emoji-container,
-.remove-task-button {
-    pointer-events: auto;
-    /* Allow interactions */
-}
-
-/* Emoji container */
-.emoji-container {
+  }
+  
+  /* Emoji container in top-left */
+  .task-emoji-button {
     position: absolute;
     top: 8px;
     left: 8px;
-    cursor: pointer;
-}
-
-/* Emoji picker */
-.emoji-picker {
-    position: absolute;
-    background-color: #ffeef6;
-    border: 1px solid #ffb6c1;
-    border-radius: 8px;
-    padding: 8px;
+    
+    /* Force a uniform size */
+    width: 32px;      /* Adjust as desired */
+    height: 32px;     
+    
     display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    top: 40px;
-    left: 0;
-    z-index: 10;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.emoji-picker span {
-    cursor: pointer;
-    font-size: 18px;
-}
-
-/* Remove Task Button */
-.remove-task-button {
+    align-items: center;   /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    overflow: hidden;      /* Just in case the emoji is larger */
+  }
+  
+  /* “×” container in top-right */
+  .remove-task-button {
     position: absolute;
     top: 8px;
     right: 8px;
-    background-color: transparent;
+    
+    /* Same box size as the emoji container */
+    width: 32px;
+    height: 32px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
     border: none;
-    color: #ff69b4;
-    font-size: 16px;
+    font-size: 1.2rem;
     cursor: pointer;
-}
-
-.remove-task-button:hover {
-    color: #ff0000;
-}
+    line-height: 1;
+  }
+  .remove-task-button:hover {
+    /* background-color: rgba(0,0,0,0.05); */
+  }
+  
