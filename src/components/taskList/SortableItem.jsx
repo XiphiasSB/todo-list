@@ -16,7 +16,7 @@ export function SortableItem({ task, updateTaskEmoji, removeTask }) {
   const style = {
     transform: CSS.Translate.toString(transform),
     transition,
-    opacity: isDragging ? 0.5 : 1
+    opacity: isDragging ? 0 : 1
   }
 
   // Instead of spreading {...attributes} {...listeners} on this wrapper,

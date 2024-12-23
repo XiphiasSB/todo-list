@@ -8,7 +8,8 @@ import {
   closestCenter,
   useSensor,
   useSensors,
-  PointerSensor
+  PointerSensor,
+  TouchSensor
 } from '@dnd-kit/core'
 import {
   SortableContext,
@@ -40,8 +41,12 @@ export function TaskBoard({
 
   // Configure sensors & collision detection
   const sensors = useSensors(
-    useSensor(PointerSensor, {
-      // e.g. activationConstraint: { distance: 5 }
+    useSensor(PointerSensor),
+    useSensor(TouchSensor, {
+      // Require the user to move 5px before triggering drag
+      activationConstraint: {
+        distance: 5,
+      }
     })
   )
 

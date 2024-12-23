@@ -1,19 +1,21 @@
 /* src/components/taskList/TaskBoard.css */
 
-/* Container that holds all columns side by side */
+/* Default (desktop and above): columns side by side */
 .task-list-container {
     display: flex;
+    flex-direction: row;    /* Show columns in a row */
+    justify-content: center;
+    align-items: flex-start; /* Align columns at the top if they have varying heights */
     gap: 16px;
     padding: 16px;
-    justify-content: space-around;
-    overflow: visible; 
-    /* Ensure child elements are not clipped */
+    overflow: visible;
 }
 
-/* Mobile Mode: stack columns vertically */
+/* Mobile: stack columns vertically and center them */
 @media (max-width: 768px) {
     .task-list-container {
-        flex-direction: column;
+        flex-direction: column;  
+        align-items: center;     /* center each column horizontally */
         gap: 12px;
     }
 }

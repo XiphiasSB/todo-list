@@ -11,6 +11,7 @@
     cursor: grab;
     text-align: center;
     padding: 8px;
+    touch-action: none;
   }
   .task-handle:active {
     cursor: grabbing;

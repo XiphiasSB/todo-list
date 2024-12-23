@@ -4,7 +4,7 @@
     flex: 1;
     min-width: 300px;
     max-width: 400px;
-    min-height: 500px; 
+    min-height: 500px;
     background-color: #ffe4e1;
     padding: 16px;
     border-radius: 12px;
@@ -26,10 +26,10 @@
     border: 2px dashed #ff69b4;
 }
 
-/* On small screens, let them stack, full width */
+/* Mobile: full width when stacked */
 @media (max-width: 768px) {
     .task-column {
-        max-width: none;
+        max-width: none;  /* remove the 400px cap */
         width: 100%;
         min-height: 100px;
     }
