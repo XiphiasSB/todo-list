@@ -16,8 +16,8 @@ import {
   verticalListSortingStrategy,
   arrayMove
 } from '@dnd-kit/sortable'
-import { TaskColumn } from './TaskColumn.jsx'
-import { Task } from '../task/task.jsx'
+import { TaskColumn } from './TaskColumn/TaskColumn.jsx'
+import { Task } from './TaskColumn/SortableItem/Task/task.jsx'
 
 // The statuses (columns) to display in order:
 const STATUSES = ['to-do', 'in-progress', 'complete']

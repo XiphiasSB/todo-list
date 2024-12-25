@@ -2,7 +2,7 @@
 import React from 'react'
 import './TaskColumn.css'  // <-- column styling
 import { useDroppable } from '@dnd-kit/core'
-import { SortableItem } from './SortableItem.jsx'
+import { SortableItem } from './SortableItem/SortableItem.jsx'
 
 export function TaskColumn({ status, tasks, updateTaskEmoji, removeTask }) {
   // Make this column droppable

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
-import { Task } from '../task/task.jsx'
+import { Task } from './Task/task.jsx'
 
 export function SortableItem({ task, updateTaskEmoji, removeTask }) {
   const {

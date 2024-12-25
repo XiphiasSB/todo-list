@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import './App.css'
 import { Header } from './components/header/Header.jsx'
 import { Input } from './components/input/input.jsx'
-import { TaskBoard } from './components/taskList/TaskBoard.jsx'
+import { TaskBoard } from './components/TaskBoard/TaskBoard.jsx'
 import { v4 as uuidv4 } from 'uuid'
 import confetti from 'canvas-confetti'
 
